@@ -119,16 +119,17 @@
 	    </div>
 	    <div class="row">
        <div class="col-md-6">
-          Picture1
+          Picture TODO : include name & logo to plugin
         </div>
         <div class="col-md-6">
            <h2>Enable plugin</h2>
           <p>To get started, first ensure that the plugin is installed, by visiting the Plugin Window. Enable the plugin if it's not already done.</p>
+          <p>All blueprints nodes explained in the following manual can be found in <b>UnrealWebServer</b> category.</p>
         </div>
       </div>
       <br/>
 		<div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
           <h2>Get, Start, Stop server</h2>
           <p>Unreal Web Server main class is a <a href="https://en.wikipedia.org/wiki/Singleton_pattern">Singleton</a> (that restricts the instantiation of UWS class to one object). You can GET this class everywhere in your blueprints using the function <b>GetOrCreateWebServerInstance</b>. As it name means, this function will GET UWS instance if it exists. Otherwise, this function will create it. In each case, an UWS instance is returned.</p>
           <p>Once you have this instance, you can start it using the StartServer function. This function needs :</p>
@@ -139,10 +140,23 @@
           <p>We strongly recommend to start the server in the level blueprint, in the BeginPlay event.</p>
           <p>The server needs to be properly stopped. Use StopServer function (in the EndPlay event for instance) to do this job and avoid futher issues.</p>
         </div>
-         <div class="col-md-4">
-          Picture2
+         <div class="col-md-6">
+          <img src="img/start.png" alt="UWS" style="height: 400px;" >
         </div>
       </div>
+
+		<br/>
+	    <div class="row">
+       <div class="col-md-6">
+          Picture TODO : include name & logo to plugin
+        </div>
+        <div class="col-md-6">
+           <h2>Enable plugin</h2>
+          <p>To get started, first ensure that the plugin is installed, by visiting the Plugin Window. Enable the plugin if it's not already done.</p>
+          <p>All blueprints nodes explained in the following manual can be found in <b>UnrealWebServer</b> category.</p>
+        </div>
+      </div>
+
       <hr>
 
       <footer>

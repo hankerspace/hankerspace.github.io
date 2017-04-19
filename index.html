@@ -1,0 +1,159 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Unreal Web Server</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>User Manual</h1>
+      </div>
+    </div>
+
+    <div class="container">
+	    <div class="row">
+	    	<h1>Web servers introduction</h1>
+	    </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Summary</h3>
+          <p>At the most basic level, whenever a browser needs a file hosted on a web server, the browser requests the file via HTTP. When the request reaches the HTTP server, it sends the requested document back, also through HTTP.</p>
+          <p>To fetch a webpage, as we already said, your browser sends a request to the web server, which proceeds to search for the requested file in its own storage space. On finding the file, the server reads it, processes it as needed, and sends it to the browser. Let's look at those steps in more detail.</p>
+        </div>
+         <div class="col-md-6">
+          <img src="img/web-server.svg" alt="Basic representation of a client/server connection through HTTP" style="height: 200px; width: 600px;">
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+       <div class="col-md-6">
+          <img src="img/how_web_servers_work_1.gif" alt="Basic representation of a client/server connection through HTTP">
+        </div>
+        <div class="col-md-6">
+          <h3>Hosting files</h3>
+          <p>A web server first has to store the website's files, namely all HTML documents and their related assets, including images, CSS stylesheets, JavaScript files, fonts, and videos.</p>
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Communicating through HTTP</h3>
+          <p>Second, a web server provides support for HTTP (<strong>H</strong>yper<strong>t</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol). As its name implies, HTTP specifies how to transfer hypertext (i.e., linked web documents) between two computers.</p>
+          <p>A <em>protocol </em>is a set of rules for communication between two computers. HTTP is a textual, stateless protocol.</p>
+          <dl>
+		 <dt>Textual</dt>
+		 <dd>All commands are plain-text and human-readable.</dd>
+		 <dt>Stateless</dt>
+		 <dd>Neither the server nor the client remember previous communications. For example, relying on HTTP alone, a server cannot remember a password you typed or what step you're on in a transaction. You need an application server for tasks like that. (We'll cover that sort of technology in further articles.)</dd>
+		</dl>
+		<p>HTTP provides clear rules for how a client and server communicate :</p>
+		<ul>
+		 <li>Only <em>clients </em>can make HTTP requests, and then only <em>to servers. </em>Servers can only<em> respond</em> to a <em>client's</em> HTTP request.</li>
+		 <li>When requesting a file via HTTP, clients must provide the file's URL</a>.</li>
+		 <li>The web server <em>must answer </em>every HTTP request, at least with an error message.</li>
+		</ul>
+		<p>On a web server, the HTTP server is responsible for processing and answering incoming requests.</p>
+		<ol>
+		 <li>On receiving a request, an HTTP server first checks whether the requested URL matches an existing file.</li>
+		 <li>If so, the web server sends the file content back to the browser. If not, an application server builds the necessary file.</li>
+		 <li>If neither process is possible, the web server returns an error message to the browser, most commonly "404 Not Found".</li>
+		</ol>
+        </div>
+      </div>
+		<br/>
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Unreal Web Server features.</h3>
+          <p>As we explained, such as an usual web server UWS can serve static files : HTML files, CSS stylesheets, JavaScript files, fonts, and videos. You just have to specify the root folder of your files in UWS startup configuration.</p>
+          <p>But the real powerfulness of UWS is its ability to communicate with Unreal Engine Blueprints. Thanks to this, UWS becomes a dynamic web server able to process the content and generate it on the fly from your games variables.</p>
+        </div>
+         <div class="col-md-8">
+          <img src="img/schema.png" alt="UWS" style="height: 300px;">
+        </div>
+      </div>
+      <br/>
+
+	    <div class="row">
+	    	<h1>Plugin installation and Usage</h1>
+	    </div>
+	    <div class="row">
+       <div class="col-md-6">
+          Picture1
+        </div>
+        <div class="col-md-6">
+           <h2>Enable plugin</h2>
+          <p>To get started, first ensure that the plugin is installed, by visiting the Plugin Window. Enable the plugin if it's not already done.</p>
+        </div>
+      </div>
+      <br/>
+		<div class="row">
+        <div class="col-md-8">
+          <h2>Get, Start, Stop server</h2>
+          <p>Unreal Web Server main class is a <a href="https://en.wikipedia.org/wiki/Singleton_pattern">Singleton</a> (that restricts the instantiation of UWS class to one object). You can GET this class everywhere in your blueprints using the function <b>GetOrCreateWebServerInstance</b>. As it name means, this function will GET UWS instance if it exists. Otherwise, this function will create it. In each case, an UWS instance is returned.</p>
+          <p>Once you have this instance, you can start it using the StartServer function. This function needs :</p>
+          <ul>
+			 <li><b>Port</b> as integer : this is the port on which UWS will start listening. By default the port is 8080 but usual web servers runs on port 80. Just be sure this port is not already used (or will not be) on your computer.</li>
+			 <li><b>DocumentRoot</b> as String : this is the folder path where UWS will parse your static (HTML) files. For instance, "www" path means your files needs to be in the "www" folder in your game contents. This parameter is optional.</li>
+			</ul>
+          <p>We strongly recommend to start the server in the level blueprint, in the BeginPlay event.</p>
+          <p>The server needs to be properly stopped. Use StopServer function (in the EndPlay event for instance) to do this job and avoid futher issues.</p>
+        </div>
+         <div class="col-md-4">
+          Picture2
+        </div>
+      </div>
+      <hr>
+
+      <footer>
+        <p>&copy; Isara Technologies 2017</p>
+      </footer>
+    </div> <!-- /container -->        
+    	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>

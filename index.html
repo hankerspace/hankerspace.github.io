@@ -134,8 +134,8 @@
             			<p>Unreal Web Server's main class is a <a href="https://en.wikipedia.org/wiki/Singleton_pattern">Singleton</a> (that restricts the instantiation of the UWS class to one object). We can GET this class anywhere in our blueprints using the function <b>GetOrCreateWebServerInstance</b>. As it name means, this function will get the UWS instance if it exists. Otherwise, this function will create it. In each case, a UWS instance is returned.</p>
             			<p>Once we have this instance, we can start it using the StartServer function. This function needs :</p>
             			<ul>
-            				<li><b>Port</b> as integer : this is the port on which UWS will start listening. By default the port is 8080 but usual web servers runs on port 80. We just need to be sure that this port is not already used (or will not be) on the computer.</li>
-            				<li><b>DocumentRoot</b> as String : this is the folder path where UWS will parse our static (HTML) files. For instance, "www" path means that the files needs to be in the "www" folder in our <b>game contents</b>. This parameter is optional.</li>
+            				<li><b>Port</b> as integer: this is the port on which UWS will start listening. By default the port is 8080 but usual web servers runs on port 80. We just need to be sure that this port is not already used (or will not be) on the computer.</li>
+            				<li><b>DocumentRoot</b> as String: this is the folder path where UWS will parse our static (HTML) files. For instance, "www" path means that the files needs to be in the "www" folder in our <b>game contents</b>. This parameter is optional.</li>
             			</ul>
             		</div>
             		<div class="col-md-6">
@@ -158,8 +158,8 @@
             			<p>Once the UWS is properly running, we can add URI Handlers. A URI Handler is needed to map a specific URL to a specific Unreal behavior (blueprint event).</p>
             			<p>A URI handler is registered by using the <b>AddURIHandler</b> function. This function needs :</p>
             			<ul>
-            				<li><b>Path</b> as String : this is the path where we want to map to a handler. For instance "/" means http://127.0.0.1:8080/ in the web browser, "/test" means http://127.0.0.1:8080/test, and so on...</li>
-            				<li><b>Method</b> as EHTTPRequestMethodEnum : this is the HTTP method needed for request mapping. If we select GET method and a POST request comes, this handler will not be used. We can specify "*" in order to listen all HTTP methods.</li>
+            				<li><b>Path</b> as String: this is the path where we want to map to a handler. For instance "/" means http://127.0.0.1:8080/ in the web browser, "/test" means http://127.0.0.1:8080/test, and so on...</li>
+            				<li><b>Method</b> as EHTTPRequestMethodEnum: this is the HTTP method needed for request mapping. If we select GET method and a POST request comes, this handler will not be used. We can specify "*" in order to listen all HTTP methods.</li>
             				<li><b>Callback</b> as Delegate with a <b>Connection</b> parameter: this is the event fired when a connection is handled on this URL with the HTTP method handled. This event provides us a Connection object (it will be explained in a next section).</li>
             			</ul>
 
@@ -183,8 +183,8 @@
             			<p>With UWS, we can use this data in our blueprints. These data are stored in the <b>Connection</b> object. Then we just have to use the following functions:</p>
             			<ul>
             				<li><b>GetHeader</b> to retrieve a header value using its name (eg. "User-Agent" header stores browser data).</li>
-            				<li><b>GetGETVar</b> to retrieve a <a href="https://en.wikipedia.org/wiki/GET_(HTTP)" >GET</a> value. GET variables are recognizable in the URL. They are sent this way : http://127.0.0.1:8080/test?var1=value1&var2=value2</li>
-            				<li><b>GetPOSTVar</b> to retrieve a <a href="https://en.wikipedia.org/wiki/POST_(HTTP)" >POST</a> value. Basically, Post variables are sent through forms. These variables are hidden : unlike GET vars, they don't appear in the URL.</li>
+            				<li><b>GetGETVar</b> to retrieve a <a href="https://en.wikipedia.org/wiki/GET_(HTTP)" >GET</a> value. GET variables are recognizable in the URL. They are sent this way: http://127.0.0.1:8080/test?var1=value1&var2=value2</li>
+            				<li><b>GetPOSTVar</b> to retrieve a <a href="https://en.wikipedia.org/wiki/POST_(HTTP)" >POST</a> value. Basically, Post variables are sent through forms. These variables are hidden: unlike GET vars, they don't appear in the URL.</li>
             				<li><b>GetCOOKIEVar</b> to retrieve a <a href="https://en.wikipedia.org/wiki/HTTP_cookie" >COOKIE</a> value. Cookies values are stored in Cookies. This data is stored by the browser and is shared through a whole website. You can use cookies as an authentication proof, for instance.</li>
             			</ul>
             			<p>For each one of these functions, the name of the variable to retrieve, as String, is needed as parameter. The return value is also a String. If the variable isn't found, the returned value is empty.</p>
@@ -234,7 +234,7 @@
             		<div class="col-md-4">
             			<h2>Style and Javascript </h2>
             			<p>To improve our web pages, we can use CSS files, Javascript, etc...</p>
-            			<p>For instance, using JQuery, we can retrieve values periodically (ex : realtime FPS meter). And compute these variables into javascript (ex: create a graph with FPS over the time).</p>
+            			<p>For instance, using JQuery, we can retrieve values periodically (e.g. realtime FPS meter). And compute these variables into javascript (e.g. create a graph with FPS over the time).</p>
             		</div>
             	</div>
             	<br/>
@@ -260,7 +260,7 @@
             		</div>
             		<div class="col-md-4">
             			<h2>Average response time</h2>
-            			<p>The following performances have been reported in local : web browser and UWS were on the same computer.</p>
+            			<p>The following performances have been reported in local: web browser and UWS were on the same computer.</p>
             			<p>The average time between the client URL request and the server computation is about 3.5ms.</p>
             			<p>The average time between the response submission and the client reception is about 2.5ms.</p>
             			<p>The rest of the time is the time needed by Unreal to compute the callback function.</p>

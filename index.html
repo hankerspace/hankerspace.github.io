@@ -135,7 +135,7 @@
             			<p>Once you have this instance, you can start it using the StartServer function. This function needs :</p>
             			<ul>
             				<li><b>Port</b> as integer : this is the port on which UWS will start listening. By default the port is 8080 but usual web servers runs on port 80. Just be sure this port is not already used (or will not be) on your computer.</li>
-            				<li><b>DocumentRoot</b> as String : this is the folder path where UWS will parse your static (HTML) files. For instance, "www" path means your files needs to be in the "www" folder in your game contents. This parameter is optional.</li>
+            				<li><b>DocumentRoot</b> as String : this is the folder path where UWS will parse your static (HTML) files. For instance, "www" path means your files needs to be in the "www" folder in your <b>game contents</b>. This parameter is optional.</li>
             			</ul>
             		</div>
             		<div class="col-md-6">
@@ -266,6 +266,18 @@
             			<p>The rest of the time is the time needed by Unreal to compute your callback function.</p>
             			<p>With simple functions, such as sending back a variable, you can easily reach below 5ms to recieve a response.</p>
             			<p>Of course, if the web browser is on another computer, the network lag will be added to these values</p>
+            		</div>
+            	</div>
+            	<br/>
+            	<hr>
+            	<div class="row">
+            		<h1>Packaging</h1>
+            	</div>
+            	<div class="row">
+            		<div class="col-md-12">
+            			<h2>HTML files path</h2>
+            			<p>The <b>DocumentRoot</b> path when you start web server can be either relative of absolute. If this path is absolute, packaging will not chnage the path. However, if path is relative, this folder must be located in content folder of the packaged project.</p>
+            			<p>For instance, if your packaged project is name TESTPROJECT, the html files folder must be in <i>PackagedProjectPath/TESTPROJECT/Content/</i> folder.</p>
             		</div>
             	</div>
             	<br/>

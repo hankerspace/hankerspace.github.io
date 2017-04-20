@@ -155,19 +155,19 @@
             		</div>
             		<div class="col-md-7">
             			<h2>Register URI handlers</h2>
-            			<p>Once your UWS is properly running, you can add URI Handlers. An URI Handler is needed to map an specific URL to a specific Unreal behavior (blueprint event).</p>
-            			<p>An URI handler is registered by using the <b>AddURIHandler</b> function. This function needs :</p>
+            			<p>Once the UWS is properly running, we can add URI Handlers. A URI Handler is needed to map a specific URL to a specific Unreal behavior (blueprint event).</p>
+            			<p>A URI handler is registered by using the <b>AddURIHandler</b> function. This function needs :</p>
             			<ul>
-            				<li><b>Path</b> as String : this is the path in you UWS you want to map to an handler. For instance "/" means http://127.0.0.1:8080/ in your web browser, "/test" means http://127.0.0.1:8080/test, and so on...</li>
-            				<li><b>Method</b> as EHTTPRequestMethodEnum : this is the HTTP method needed for request mapping. If you select GET method and a POST request incomes, this handler will not be used. You can specify "*" in order to listen all HTTP methods.</li>
-            				<li><b>Callback</b> as Delegate with a <b>Connection</b> parameter : this is the event fired when a connection is handled on this URL with the HTTP method handled. This event provides you a Connection object (it will be explained in a next section).</li>
+            				<li><b>Path</b> as String : this is the path where we want to map to a handler. For instance "/" means http://127.0.0.1:8080/ in the web browser, "/test" means http://127.0.0.1:8080/test, and so on...</li>
+            				<li><b>Method</b> as EHTTPRequestMethodEnum : this is the HTTP method needed for request mapping. If we select GET method and a POST request comes, this handler will not be used. We can specify "*" in order to listen all HTTP methods.</li>
+            				<li><b>Callback</b> as Delegate with a <b>Connection</b> parameter: this is the event fired when a connection is handled on this URL with the HTTP method handled. This event provides us a Connection object (it will be explained in a next section).</li>
             			</ul>
 
             		</div>
             		<div class="col-md-12">
-            			<p>Of course, you can either create a custom event or map a function to the callback, such as on the picture.</p>
+            			<p>Of course, we can either create a custom event or map a function to the callback, such as on the picture.</p>
             			<div class="alert alert-warning">
-            				<strong>Warning!</strong> The delegate fires the event outside of the game thread. It means you <strong>can't modify some gameobjects</strong> directly in this event. We suggest you to save the value you want to update the gameobject to and do the job in the Tick event.
+            				<strong>Warning!</strong> The delegate fires the event outside of the game thread. It means we <strong>can't modify some gameobjects</strong> directly in this event. We suggest to save the value we want to update in the gameobject and do the job in the Tick event.
             			</div>
             		</div>
             	</div>
@@ -179,15 +179,15 @@
             	<div class="row">
             		<div class="col-md-6">
             			<h2>Incoming variables</h2>
-            			<p>Browser can send data to the server in several ways : headers, POST variables, GET variables, COOKIES variables, etc...</p>
-            			<p>With UWS, you can use this data into your blueprints. These data are stored in the <b>Connection</b> object. Then you just have to use the following functions :</p>
+            			<p>Browser can send data to the server in several ways: headers, POST variables, GET variables, COOKIES variables, etc...</p>
+            			<p>With UWS, we can use this data in our blueprints. These data are stored in the <b>Connection</b> object. Then we just have to use the following functions:</p>
             			<ul>
-            				<li><b>GetHeader</b> to retrieve an header value using its name (eg. "User-Agent" header stores browser informations).</li>
+            				<li><b>GetHeader</b> to retrieve a header value using its name (eg. "User-Agent" header stores browser data).</li>
             				<li><b>GetGETVar</b> to retrieve a <a href="https://en.wikipedia.org/wiki/GET_(HTTP)" >GET</a> value. GET variables are recognizable in the URL. They are sent this way : http://127.0.0.1:8080/test?var1=value1&var2=value2</li>
-            				<li><b>GetPOSTVar</b> to retrieve a <a href="https://en.wikipedia.org/wiki/POST_(HTTP)" >POST</a> value. Basically, Post variables are sent through forms. These variables are hidden : unlike GET vars, they didn't appears in the URL.</li>
-            				<li><b>GetCOOKIEVar</b> to retrieve a <a href="https://en.wikipedia.org/wiki/HTTP_cookie" >COOKIE</a> value. Cookies values are stored in Cookies. This data is stored by browser and is shared through a whole website. You can use cookies as authentication proof, for instance.</li>
+            				<li><b>GetPOSTVar</b> to retrieve a <a href="https://en.wikipedia.org/wiki/POST_(HTTP)" >POST</a> value. Basically, Post variables are sent through forms. These variables are hidden : unlike GET vars, they don't appear in the URL.</li>
+            				<li><b>GetCOOKIEVar</b> to retrieve a <a href="https://en.wikipedia.org/wiki/HTTP_cookie" >COOKIE</a> value. Cookies values are stored in Cookies. This data is stored by the browser and is shared through a whole website. You can use cookies as an authentication proof, for instance.</li>
             			</ul>
-            			<p>For each of these functions, the name of the variable to retrieve, as String, is needed as parameter. The return value is also a String. If the variable wasn't found, the return value is empty.</p>
+            			<p>For each one of these functions, the name of the variable to retrieve, as String, is needed as parameter. The return value is also a String. If the variable isn't found, the returned value is empty.</p>
             		</div>
             		<div class="col-md-6">
             			<img src="img/get.png" alt="UWS" style="height: 500px;" >
@@ -200,22 +200,22 @@
             		</div>
             		<div class="col-md-6">
             			<h2>Send response</h2>
-            			<p>In order to provide informations to the client browser, you need to send a Response.</p>
+            			<p>In order to provide data to the client browser, we need to send a Response.</p>
             			<p>Response can be fully qualified using response status code, cookies, content type and redirection.</p>
-            			<p>First of all, you can send a basic response in a comprehensive by using the function <b>ConstructResponseExt</b> and specifying the response content. Basically, this function will create a new response, fill in the content with your value and set the response status code to 200 Found.</p>
-            			<p>Once the response built, you have to send it with <b>SendResponse</b> function.</p>
+            			<p>First of all, we can send a basic response in a comprehensive way by using the function <b>ConstructResponseExt</b> and specifying the response content. Basically, this function will create a new response, fill in the content with our value and set the response status code to 200 Found.</p>
+            			<p>Once the response built, we have to send it with the <b>SendResponse</b> function.</p>
             		</div>
             	</div>
             	<div class="alert alert-warning">
-            		<strong>Warning!</strong> The time needed by your event to complete and send the response will impact the performance. If your function lasts 2000ms to be completed and send the response, the client browser will be stuck for at least 2000ms.
+            		<strong>Warning!</strong> The time needed by the event to complete and send the response will impact the performance. If our function lasts 2000ms to be completed and to send the response, the client browser will be stuck for at least 2000ms.
             	</div>
             	<br/>
             	<div class="row">
             		<div class="col-md-6">
             			<h2>Enhanced response</h2>
-            			<p>You can enhance your response by specifying the response code, cookies, etc...</p>
-            			<p>You can use <b>ConstructResponse</b> tu construct an empty response. Then save its reference and complete the response with other functions</p>
-            			<p>You can add a cookie to this response. Such as <b>ConstructResponseExt</b>, <b>ConstructCookieExt</b> can be used to create a Cookie object with a name and a value. Remember, this cookie will be stored in the client's browser.</p>
+            			<p>We can enhance our response by specifying the response code, cookies, etc...</p>
+            			<p>We can use <b>ConstructResponse</b> tu construct an empty response. Then save its reference and complete the response with other functions</p>
+            			<p>We can add a cookie to this response. Such as <b>ConstructResponseExt</b>, <b>ConstructCookieExt</b> can be used to create a Cookie object with a name and a value. Remember, this cookie will be stored in the client's browser.</p>
             			<p>Cookie can be customized with a max age, a specific domain, etc...</p>
             		</div>
             		<div class="col-md-6">
@@ -233,15 +233,15 @@
             		</div>
             		<div class="col-md-4">
             			<h2>Style and Javascript </h2>
-            			<p>To improve your web pages, you can use CSS files, Javascript, etc...</p>
-            			<p>For instance, using JQuery, you can retrieve values periodically (ex : realtime FPS meter). And compute these variable into javascript (ex: create a graph with FPS over the time).</p>
+            			<p>To improve our web pages, we can use CSS files, Javascript, etc...</p>
+            			<p>For instance, using JQuery, we can retrieve values periodically (ex : realtime FPS meter). And compute these variables into javascript (ex: create a graph with FPS over the time).</p>
             		</div>
             	</div>
             	<br/>
             	<div class="row">
             		<div class="col-md-6">
             			<h2>Responsive </h2>
-            			<p>Of course you can create your web pages in a responsive way. A smartphone or a tablet can control or receive informations from your game.</p>
+            			<p>Of course we can create our web pages in a responsive way. A smartphone or a tablet can control or receive data from our game.</p>
             		</div>
             		<div class="col-md-6">
             			<img src="img/smartphone.jpg" alt="UWS" style="height: 350px;" >
@@ -261,10 +261,10 @@
             		<div class="col-md-4">
             			<h2>Average response time</h2>
             			<p>The following performances have been reported in local : web browser and UWS were on the same computer.</p>
-            			<p>The average time between client URL request and server computing is about 3.5ms.</p>
-            			<p>The average time between response submission and client reception is about 2.5ms.</p>
-            			<p>The rest of the time is the time needed by Unreal to compute your callback function.</p>
-            			<p>With simple functions, such as sending back a variable, you can easily reach below 5ms to recieve a response.</p>
+            			<p>The average time between the client URL request and the server computation is about 3.5ms.</p>
+            			<p>The average time between the response submission and the client reception is about 2.5ms.</p>
+            			<p>The rest of the time is the time needed by Unreal to compute the callback function.</p>
+            			<p>With simple functions, such as sending back a variable, we can easily reach below 5ms to receive a response.</p>
             			<p>Of course, if the web browser is on another computer, the network lag will be added to these values</p>
             		</div>
             	</div>
@@ -276,8 +276,8 @@
             	<div class="row">
             		<div class="col-md-12">
             			<h2>HTML files path</h2>
-            			<p>The <b>DocumentRoot</b> path when you start web server can be either relative of absolute. If this path is absolute, packaging will not chnage the path. However, if path is relative, this folder must be located in content folder of the packaged project.</p>
-            			<p>For instance, if your packaged project is name TESTPROJECT, the html files folder must be in <i>PackagedProjectPath/TESTPROJECT/Content/</i> folder.</p>
+            			<p>The <b>DocumentRoot</b> path when we start the web server can be either relative of absolute. If this path is absolute, packaging will not change the path. However, if the path is relative, this folder must be located in the content folder of the packaged project.</p>
+            			<p>For instance, if our packaged project has the name TESTPROJECT, the html files folder must be in <i>PackagedProjectPath/TESTPROJECT/Content/</i> folder.</p>
             		</div>
             	</div>
             	<br/>
